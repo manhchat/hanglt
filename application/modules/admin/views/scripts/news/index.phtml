@@ -1,0 +1,76 @@
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+
+		<!-- Begin: life time stats -->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-certificate"></i>Danh sách tin tức
+				</div>
+				<div class="actions">
+					<a href="<?php echo $this->baseUrl('admin/news/add')?>"
+						class="btn default green-stripe"> <i class="fa fa-plus"></i> <span
+						class="hidden-480">Tạo mới thông tin</span>
+					</a>
+				</div>
+			</div>
+			<div class="portlet-body">
+                <?php if (count($this->messages)) : ?>
+                    <?php foreach ($this->messages as $message) : ?>
+                        <div class="alert alert-success">
+					<button class="close" data-close="alert"></button>
+                            <?php echo $message; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <div class="table-container">
+					<div class="table-actions-wrapper">
+						<span> </span> <select
+							class="table-group-action-input form-control input-inline input-small input-sm">
+							<option value=""><?php echo $this->lang['admin_select_label']?></option>
+							<option value="delete"><?php echo $this->lang['admin_btn_delete_seleted']?></option>
+						</select>
+						<button class="btn btn-sm yellow table-group-action-submit">
+							<i class="fa fa-check"></i> <?php echo $this->lang['admin_btn_submit']?></button>
+					</div>
+					<table class="table table-striped table-bordered table-hover"
+						id="datatable_list">
+						<thead>
+							<tr role="row" class="heading">
+								<th width="1%"><input type="checkbox" class="group-checkable"></th>
+								<th width="15%">Tiêu đề</th>
+								<th width="20%">Danh mục</th>
+								<th width="5%">
+                                    <?php echo $this->lang['admin_update_date']?>
+                                </th>
+								<th width="5%">
+                                    <?php echo $this->lang['admin_action']?>
+                                </th>
+							</tr>
+							<tr role="row" class="filter">
+								<td></td>
+								<td><input type="text" class="form-control form-filter input-sm"
+									name="title"></td>
+								<td></td>
+								<td></td>
+								<td>
+									<div class="margin-bottom-5">
+										<button class="btn btn-sm default filter-submit margin-bottom">
+											<i class="fa fa-search"></i> <?php echo $this->lang['admin_search_btn']?></button>
+									</div>
+									<button class="btn btn-sm red filter-cancel">
+										<i class="fa fa-times"></i> <?php echo $this->lang['admin_reset_btn']?></button>
+								</td>
+							</tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- End: life time stats -->
+	</div>
+</div>
+<!-- END PAGE CONTENT-->

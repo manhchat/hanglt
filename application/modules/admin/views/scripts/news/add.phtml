@@ -1,0 +1,72 @@
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN VALIDATION STATES-->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+
+					<i class="fa fa-gift"></i>Tạo mới thông tin chung
+
+				</div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form action="<?php echo $this->baseUrl('admin/news/save')?>"
+					id="admin_form" class="form-horizontal" method="POST">
+					<div class="form-body">  
+                        <?php if(isset($this->message)):?>
+                            <?php echo $this->message;?>
+                        <?php endif;?>
+                        <div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+							Có một vài lỗi dữ liệu. Hãy kiểm tra lại.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+							Kiểm tra dữ liệu thành công!
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Tiêu đề <span
+								class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('title')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Danh mục thông tin <span
+								class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('category')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Nội dung </label>
+							<div class="col-md-8">
+                                <?php echo $this->form->getElement('body')?>
+                            </div>
+						</div>
+
+					</div>
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<input type="hidden" name="access_redirect" value=""
+									id="access_redirect" />
+								<button type="submit" class="btn green" id="save">Lưu</button>
+								<button type="submit" class="btn btn-info" id="save_and_close">Lưu
+									và đóng</button>
+								<button type="button" class="btn default"
+									data-url="<?php echo $this->baseUrl('admin/news/index')?>"
+									id="btn_cancel">Hủy</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- END FORM-->
+			</div>
+			<!-- END VALIDATION STATES-->
+		</div>
+	</div>
+</div>

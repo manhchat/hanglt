@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <?php echo $this->headTitle(); ?>
+        <?php echo $this->headMeta(); ?>
+        <?php echo $this->headLink(); ?>
+    </head>
+    <body id="home">
+        <header>
+            <?php //echo $this->action('header-banner', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
+        </header>
+        <nav>
+            <div id="gnav">
+                <ul class="clearfix">
+                    <li id="gnav01"><a href="#/index.php">ホーム</a></li>
+                    <li id="gnav02"><a href="#/shop_01.php">商品ご購入</a></li>
+                    <li id="gnav03"><a href="#/payment.php">お支払い・送料</a></li>
+                    <li id="gnav04"><a href="#/products.php">取り扱い商品</a></li>
+                    <li id="gnav05"><a href="#/company.php">会社概要</a></li>
+                    <li id="gnav06"><a href="#/fax_order.pdf" target="_blank">FAX注文</a></li>
+                    <li id="gnav07"><a href="#/contact.php">お問い合せ</a></li>
+                </ul>
+            </div>
+            <!--#gnav-->
+        </nav>
+        <div id="mainVisual">
+            <img src="<?php echo $this->baseUrl('css/images')?>/main01.png" alt="">
+        </div>
+        <!--#mainVisual-->
+        <div id="contents" class="clearfix">
+            <div id="main">
+                <?php echo $this->layout()->content;?>
+            </div>
+            <!--#main-->
+            <div id="sidebar">
+                <nav>
+                    <div id="subNav">
+                        <?php echo $this->action('category', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
+                    </div>
+                    <!--#subNav-->
+                </nav>
+                <div class="conSide01">
+                    <a href="#/contact.php"><img src="<?php echo $this->baseUrl('css/images')?>/sideBan01.jpg" alt=""></a>
+                </div>
+                <!--.conSide01-->
+                <div class="conSide01">
+                    <a href="#/contact.php"><img src="<?php echo $this->baseUrl('css/images')?>/sideBan02.jpg" alt=""></a>
+                </div>
+                <!--.conSide01-->
+                <div class="conSide01">
+                    <a href="#/contact.php"><img src="<?php echo $this->baseUrl('css/images')?>/sideBan03.jpg" alt=""></a>
+                </div>
+                <!--.conSide01-->
+                <div class="conSide01 about">
+                    <h3><span>About us</span></h3>
+                    <div>
+                        <h4>ニチヨー株式会社</h4>
+                        <p>〒661-0044<br>兵庫県尼崎市武庫町<br>3-3-27-2F</p>
+                        <p>TEL　06-6435-2400<br>FAX　06-6435-2401</p>
+                        <p><a href="#/contact.php">メールでのお問い合わせ</a></p>
+                    </div>
+                </div>
+                <!--.conSide01-->
+            </div>
+            <!--#sidebar-->
+        </div>
+        <!--#contents-->
+        <div id="topLink">
+            <a href="#/index.php#header">▲ ページの先頭へ</a>
+        </div>
+        <footer>
+            <div id="footer">
+                <div id="footerInner">
+                    <ul class="clearfix">
+                        <li><a href="#/index.php">ホーム</a></li>
+                        <li class="second">
+                            <a href="#/shop_01.php">商品ご購入</a>
+                            <ul>
+                                <li><a href="#/shop_01.php">おしぼり／白</a></li>
+                                <li><a href="#/shop_02.php">おしぼり／カラー</a></li>
+                                <li><a href="#/shop_05.php#tray">おしぼりトレイ</a></li>
+                                <li><a href="#/shop_06.php">おしぼり温冷庫</a></li>
+                                <li><a href="#/shop_05.php#paper">紙おしぼり</a></li>
+                                <li><a href="#/shop_03.php">フェイスタオル</a></li>
+                                <li><a href="#/shop_04.php">バスタオル</a></li>
+                                <li><a href="#/shop_07.php">訳あり在庫処分品</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#/payment.php">お支払い・送料</a></li>
+                        <li><a href="#/products.php">取り扱い商品</a></li>
+                        <li><a href="#/company.php">会社概要</a></li>
+                        <li><a href="#/fax_order.pdf" target="_blank">FAX注文</a></li>
+                        <li><a href="#/contact.php">お問い合わせ</a></li>
+                    </ul>
+                </div>
+                <!--#footerInner-->
+            </div>
+            <!--#footer-->
+            <div id="footerInfo" class="clearfix">
+                <div class="left">Copyright © Nichiyho All Rights Reserved.</div>
+                <div class="right">
+                    <a href="#/index.php"><img src="<?php echo $this->baseUrl('css/images')?>/h1.png" alt="業務用おしぼり販売のニチヨー株式会社"></a>
+                </div>
+                <!--#footerInfo-->
+            </div>
+        </footer>
+        <div></div>
+        <div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div>
+        <div id="lightbox" class="lightbox" style="display: none;">
+            <div class="lb-outerContainer">
+                <div class="lb-container">
+                    <img class="lb-image" src="">
+                    <div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div>
+                    <div class="lb-loader"><a class="lb-cancel"></a></div>
+                </div>
+            </div>
+            <div class="lb-dataContainer">
+                <div class="lb-data">
+                    <div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div>
+                    <div class="lb-closeContainer"><a class="lb-close"></a></div>
+                </div>
+            </div>
+        </div>
+        <?php echo $this->headScript(); ?>
+        <?php echo Common_Debug::printSqlHtml()?>
+    </body>
+</html>

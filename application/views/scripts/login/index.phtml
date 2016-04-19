@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="vi"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="vi"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="vi"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Website management login system</title>
+<link rel="stylesheet"
+	href="<?php echo $this->baseUrl()?>/css/login/style.css">
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+	<section class="container">
+		<div class="login">
+			<h1>Website management login system</h1>
+			<form method="post"
+				action="<?php echo $this->baseUrl('/login/index')?>">
+				<p><?php echo $this->form->getElement('username')?></p>
+				<p><?php echo $this->form->getElement('password')?></p>
+				<p class="error center"><?php echo $this->message?></p>
+				<p class="submit">
+					<input type="submit" name="commit" value="Login">
+				</p>
+			</form>
+		</div>
+	</section>
+  <?php echo Common_Debug::printSqlHtml()?>
+</body>
+</html>

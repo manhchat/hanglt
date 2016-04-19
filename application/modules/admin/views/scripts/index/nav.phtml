@@ -1,0 +1,8 @@
+<ul class="tabs primary">
+    <?php foreach ($this->naviOut as $item): ?>
+	     <li
+		<?php echo isset($item['class'])?' class="'.$item['class'].'"':'';?>><a
+		href="<?php echo $item['link'];?>"
+		<?php echo $item['selected'] == 'true' ? ' class="current"' : '' ?>><?php echo $item['title'];?></a></li>
+	<?php endforeach; ?>
+</ul>

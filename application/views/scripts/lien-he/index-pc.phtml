@@ -1,0 +1,89 @@
+<div class="page_sub7 shadow cor">
+	<div class="page_sub7_in">
+		<!---->
+		<div
+			style="float: left; width: 50%; border-right: 1px dotted #ccc; line-height: 21px;">
+			<p><?php echo $this->lang['company_name']?></p>
+			<p>Địa chỉ: <?php echo $this->lang['company_address']?></p>
+			<p>Điện thoại: &nbsp;<?php echo $this->lang['company_phone']?></p>
+			<p>
+				Email: <a
+					href="mailto:<?php echo $this->lang['company_mail']?>?Subject=<?php echo $this->lang['mail_subject']?>"
+					target="_top"><?php echo $this->lang['company_mail']?></a>
+			</p>
+			<p>&nbsp;</p>
+			<div style="padding: 10px 0;">
+				<iframe
+					src="https://www.google.com/maps/d/embed?mid=zcjmlwtFDuQE.kQWzZEW0rVEk"
+					width="100%" height="480"></iframe>
+			</div>
+		</div>
+		<div style="float: right; width: 45%;">
+			<style type="text/css">
+.require {
+	font-weight: bold;
+	color: #F00
+}
+</style>
+			<?php if (count($this->messages)) : ?>
+				<?php foreach ($this->messages as $message) : ?>
+					<div class="alert alert-success">
+						<?php echo $message; ?>
+					</div>
+				<?php endforeach; ?>
+			<?php endif; ?>
+			<div style="font-weight: bold; padding: 15px 0;">Quý khách vui lòng
+				gửi thông tin theo form sau :</div>
+			<form method="post"
+				action="<?php echo $this->baseUrl('lien-he/index')?>">
+				<table>
+					<tbody>
+						<tr>
+							<td>Tên bạn <span class="require">*</span></td>
+							<td><input size="40" name="contact_name" id="contact_name"
+								type="text"></td>
+						</tr>
+						<tr>
+							<td>Email <span class="require">*</span></td>
+							<td><input size="40" name="contact_email" id="contact_email"
+								type="text"></td>
+						</tr>
+						<tr>
+							<td>Điện thoại</td>
+							<td><input size="40" name="contact_tel" id="contact_tel"
+								type="text"></td>
+						</tr>
+						<tr>
+							<td>Thông tin liên hệ <span class="require">*</span></td>
+							<td><textarea cols="31" rows="8" name="contact_message"
+									id="contact_message" style="width: 266px;"></textarea></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input value="Gửi đi" onclick="return check_form();"
+								style="padding: 3px 15px" type="submit"></td>
+						</tr>
+					</tbody>
+				</table>
+				<input value="send" name="action" type="hidden">
+			</form>
+		</div>
+		<div class="clear"></div>
+		<script type="text/javascript">
+			function check_form(){
+				var error = "";
+				var check_name = document.getElementById('contact_name').value;
+				var check_email = document.getElementById('contact_email').value;
+				var check_message = document.getElementById('contact_message').value;
+				if(check_name.length < 4) error += "- Bạn chưa nhập tên\n";
+				if(check_email.length < 4) error += "- Bạn chưa nhập email\n";
+				if(check_message.length < 4) error += "- Bạn chưa nhập nội dung\n";
+			
+				if(error == "") return true;
+				else alert(error);
+				return false;
+			}
+		</script>
+		<!---->
+	</div>
+</div>

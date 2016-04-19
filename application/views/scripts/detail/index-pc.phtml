@@ -1,0 +1,122 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=<?php echo FACEBOOK_APP_ID?>";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="ptitle">
+	<h1 itemprop="name"><?php echo $this->data['title']?></h1>
+</div>
+<div id="colp_right">
+	<div class="crpdiv pinfo">
+		<div class="pi_content">
+			<div class="clear"></div>
+			<div class="pi_mtn" style="margin-top: 10px;">
+				<span class="piStock"><b>Trạng thái:</b> <?php if ($this->data['status'] == 1){?>Còn hàng<?php } else {?>Hết hàng<?php }?></span>
+			</div>
+			<div class="pprice">
+				<?php if ($this->data['price_promotion'] != '' && $this->data['price_promotion'] != 0):?>
+				<span class="special"><?php echo $this->data['price']?></span>
+				<?php endif;?>
+				<br>
+				<?php if ($this->data['price_promotion'] != '' && $this->data['price_promotion'] != 0) {?>
+					<span class="price"><?php echo $this->data['price_promotion']?></span>
+				<?php } else {?>
+					<span class="price"><?php echo $this->data['price']?></span>
+				<?php }?>
+				<br>
+			</div>
+			<div class="pManuWar">
+				<b>Thương hiệu:</b> <?php echo $this->data['brand_name']?>
+				/
+				<b>Bảo hành:</b> <?php echo $this->data['bao_hanh']?>
+			</div>
+			<div class="pManuWar">
+				<b>Quà tặng:</b> <span class="red"><?php echo $this->data['promotion']?></span>
+			</div>
+		</div>
+		<div class="pinfo_cart">
+			<div href="#"
+				class="ajax colorboxCart btcart btcColor1 btcspan cboxElement">
+				GIAO TẬN NƠI<span>(xem thoải mái, không mua không sao)</span>
+			</div>
+		</div>
+		<div class="pihotline">
+			<?php echo $this->lang['order_text']?>
+		</div>
+	</div>
+	<div class="pRelated">
+		<h4 class="pk_title">Sản phẩm cùng loại</h4>
+		<ul class="listPinfo" style="height: auto !important;">
+			<?php foreach ($this->productBrand as $key => $value):?>
+			<li class="lpili">
+				<div class="lpidiv">
+					<a href="<?php echo $value['link_detail']?>"
+						style="display: block; height: 85px;"> <img
+						src="<?php echo $value['image']?>"
+						alt="<?php echo $value['title']?>"
+						title="<?php echo $value['title']?>">
+					</a>
+					<div class="ltitle" style="height: 30px; overflow: hidden;">
+						<a href="<?php echo $value['link_detail']?>"><?php echo $value['title']?></a>
+					</div>
+					<div class="lprice">
+						<span class="price"><?php echo $value['price']?></span> <br>
+					</div>
+				</div>
+			</li>
+			<?php endforeach;?>
+		</ul>
+	</div>
+
+	<div class="pRelated">
+		<?php echo $this->action('fanpage-pc', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
+	</div>
+
+	<div class="pRelated">
+		<?php echo $this->action('google-pc', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
+	</div>
+</div>
+<!-- end colp right -->
+<div id="content" class="col_right">
+	<div class="ctp_slider">
+		<div class="ctptab">
+			<div class="cImagect" style="display: block;">
+				<div
+					style="position: relative; top: 0px; left: 0px; overflow: hidden; z-index: 1; width: 700px; height: 390px;"
+					class="doubleSlider-1 cImgSlider-1">
+					<div
+						style="position: relative; cursor: move; width: 700px; left: -700px;"
+						class="slider">
+						<div
+							style="width: 700px; overflow: hidden; position: absolute; left: 700px;"
+							class="item">
+							<img src="<?php echo $this->data['image_path']?>"
+								title="<?php echo $this->data['title']?>"
+								alt="<?php echo $this->data['title']?>">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end ctp_slider -->
+	<div class="tab_title">
+		<a rel="#tab_guide" class="active">Đặc điểm sản phẩm</a> <a class=""
+			rel="#tab_description">Thông số kỹ thuật</a>
+	</div>
+	<div style="display: none;" id="tab_description" class="ctpage">
+		<?php echo $this->data['technical_info']?>
+	</div>
+	<div style="display: block;" id="tab_guide" class="ctpage active">
+		<?php echo $this->data['body']?>
+	</div>
+	<div id="tab_review">
+		<div class="tbd_title">
+			<b>Đặt câu hỏi về sản phẩm:</b> <?php echo $this->data['title']?></div>
+		<div class="fb-comments" data-href="<?php echo $this->urlShare?>"
+			data-width="660" data-numposts="10"></div>
+	</div>
+</div>

@@ -1,0 +1,11 @@
+<?php /*<!-- <h1 class="heading-lv1">Page Title</h1>  -->*/ ?>
+<aside id="aside">
+	<ul class="local-nav">
+			    <?php foreach ($this->naviOut as $item): ?>
+				<li
+			<?php echo isset($item['class'])?' class="'.$item['class'].'"':'';?>><a
+			href="<?php echo $item['link'];?>"
+			<?php echo $item['selected'] == 'true' ? ' class="current"' : '' ?>><?php echo $item['title'];?></a></li>
+				<?php endforeach; ?>
+			</ul>
+</aside>

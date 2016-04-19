@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+    <?php echo $this->headTitle(); ?>
+   	<?php echo $this->headMeta(); ?>
+   	<?php echo $this->headLink(); ?>
+   	
+    <!-- InstanceBeginEditable name="foot" -->
+<!-- InstanceEndEditable -->
+    <?php echo $this->headScript(); ?>
+</head>
+<body>
+	<div id="container" class="public">
+		<div id="branding" class="clearfix">
+			<ul class="tabs primary">
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/course/list">COURSES</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/technology/list">TECHNOLOGY</a>
+				</li>
+				<li class="active"><a
+					href="http://localhost/directions/dev/admin/directions/schedule/list"
+					class="active">SCHEDULE<span class="element-invisible">(active tab)</span></a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/location/list">LOCATIONS</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/certificate/list">CERTIFICATIONS</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/latestnews/list">LATESTNEWS</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/registration/list">REGISTRATION</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/delivery/list">DELIVERIES</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/region/list">REGIONS</a>
+				</li>
+				<li><a
+					href="http://localhost/directions/dev/admin/directions/timezone/list">TIMEZONES</a>
+				</li>
+			</ul>
+		</div>
+		<div id="page">
+			<div class="content">
+            <?php echo $this->layout()->content;?>
+        </div>
+		</div>
+		<div id="footer"></div>
+	<?php echo Common_Debug::printSqlHtml()?>
+</div>
+
+</body>
+<!-- InstanceEnd -->
+</html>
+

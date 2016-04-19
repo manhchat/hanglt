@@ -1,0 +1,39 @@
+<div id="fb-root"></div>
+<script>
+	(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="product_detail">
+	<?php if (!empty($this->data)) {?>
+		<div class="area">
+			<?php echo $this->data['title']?>
+		</div>
+	<div class="detail">
+			<?php echo $this->data['body']?>
+		</div>
+	<?php } else {?>
+		<p>Dữ liệu đang được cập nhật...</p>
+	<?php }?>
+	<div class="area">Chúng tôi trên facebook</div>
+	<div class="share-product">
+		<div class="share-product-page">
+			<div class="fb-page" data-href="<?php echo FANPAGE_FACEBOOK?>"
+				data-width="310" data-height="500" data-small-header="true"
+				data-adapt-container-width="true" data-hide-cover="true"
+				data-show-facepile="true" data-show-posts="true">
+				<div class="fb-xfbml-parse-ignore">
+					<blockquote cite="<?php echo FANPAGE_FACEBOOK?>">
+						<a href="<?php echo FANPAGE_FACEBOOK?>">
+							<?php echo $this->lang['facebook_text']?>
+						</a>
+					</blockquote>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

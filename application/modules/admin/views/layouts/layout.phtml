@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+  "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+	version="XHTML+RDFa 1.0" dir="ltr">
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+<!-- InstanceBeginEditable name="head" -->
+<!-- InstanceEndEditable -->
+    <?php echo $this->headTitle(); ?>
+   	<?php echo $this->headMeta(); ?>
+   	<?php echo $this->headLink(); ?>
+   	
+    <!-- InstanceBeginEditable name="foot" -->
+<!-- InstanceEndEditable -->
+    <?php echo $this->headScript(); ?>
+</head>
+<body>
+	<div id="container" class="public">
+		<div id="branding" class="clearfix">
+        <?php echo $this->action('nav', 'index', 'admin', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
+        <div class="pull-right profile-info">
+				<a href="<?php echo $this->baseUrl('admin/user/change-password')?>">Change
+					password&nbsp;<img alt=""
+					src="<?php echo $this->baseUrl()?>/assets/images/change.png"
+					width="20">
+				</a> &nbsp;&nbsp;|&nbsp;&nbsp; <a
+					href="<?php echo $this->baseUrl('login/logout')?>">Logout&nbsp;<img
+					alt="" src="<?php echo $this->baseUrl()?>/assets/images/logout.png"
+					width="20"></a>
+			</div>
+		</div>
+
+		<div id="page">
+			<div class="content">
+            <?php echo $this->layout()->content;?>
+        </div>
+		</div>
+		<div id="footer"></div>
+	<?php echo Common_Debug::printSqlHtml()?>
+</div>
+
+</body>
+<!-- InstanceEnd -->
+</html>
+

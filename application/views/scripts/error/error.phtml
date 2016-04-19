@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<!-- InstanceBegin template="/Templates/public.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<!-- InstanceBeginEditable name="head" -->
+<meta name="viewport"
+	content="width=device-width, user-scalable=no, maximum-scale=1">
+<!-- InstanceEndEditable -->
+<?php echo $this->headTitle(); ?>
+
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/JavaScript" />
+<meta http-equiv="keywords"
+	content="<?php echo $this->lang['error-head_keywords'];?>" />
+<meta http-equiv="description"
+	content="<?php echo $this->lang['error-head_description'];?>" />
+<link href="<?php echo $this->baseUrl('common/css/reset.css');?>"
+	media="screen" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->baseUrl('common/css/layout.css');?>"
+	media="screen" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->baseUrl('common/css/common.css');?>"
+	media="screen" rel="stylesheet" type="text/css" />
+<link href="<?php echo $this->baseUrl('css/admin/error.css');?>"
+	media="screen" rel="stylesheet" type="text/css" />
+
+<!-- InstanceEndEditable -->
+<!-- InstanceParam name="p100_category" type="text" value="" -->
+<!-- InstanceParam name="p110_subCategory" type="text" value="" -->
+<!-- InstanceParam name="p200_columnNumber" type="number" value="1" -->
+<!--[if lt IE 9]>
+<script src="<?php echo $this->baseUrl('common/js/html5shiv.js');?>"></script>
+<script src="<?php echo $this->baseUrl('common/js/selectivizr.js');?>"></script>
+<![endif]-->
+<!-- InstanceEndEditable name="head" -->
+</head>
+<body id="top">
+	<div id="container" class="public">
+		<section id="contents">
+			<div class="contents-inner">
+				<!-- InstanceBeginEditable name="contents" -->
+	<?php if ('development' == APPLICATION_ENV ): ?>
+	<div>
+					<h2 class="heading-lv1">
+			<?php echo $this->exception->getMessage()?>
+		</h2>
+					<h3>Stack trace:</h3>
+					<pre>
+			<?php echo $this->exception->getTraceAsString() ?> </pre>
+					<h3>Request Parameters:</h3>
+					<pre>
+			<?php var_dump($this->request->getParams()) ?> </pre>
+					<h3>Query:</h3>
+					<pre>
+			<?php echo Common_Debug::printSqlHtml()?> </pre>
+					<h3>Session Parameters:</h3>
+					<pre>
+			<?php var_dump(Common_Authentication::getUser()) ?> </pre>
+				</div>
+
+	<?php endif ?>
+	<!-- InstanceEndEditable -->
+			</div>
+
+		</section>
+
+	</div>
+	<!-- InstanceBeginEditable name="foot" -->
+	<!-- InstanceEndEditable -->
+<?php echo $this->headScript(); ?>
+<?php echo Common_Debug::printSqlHtml()?>
+</body>
+<!-- InstanceEnd -->
+</html>

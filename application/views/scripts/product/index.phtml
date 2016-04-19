@@ -1,0 +1,12 @@
+<h4>商品一覧</h4>
+
+<div class="product-list">
+    <ul>
+        <?php foreach ($this->product as $key => $value): ?>
+            <li>
+                <a href="<?php echo $this->baseUrl('product/detail/'.$value['id'])?>" title="<?php echo $value['product_name']?>"><img alt="<?php echo $value['product_name']?>" src="<?php echo $value['image_preview']?>" title="<?php echo $value['product_name']?>"></a>
+                <h5><a href="<?php echo $this->baseUrl('product/detail/'.$value['id'])?>" title="<?php echo $value['product_name']?>"><?php echo $value['product_name']?></a></h5>
+            </li>
+        <?php endforeach;?>
+    </ul>
+</div>

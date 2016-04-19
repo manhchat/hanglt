@@ -1,0 +1,82 @@
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN VALIDATION STATES-->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+
+					<i class="fa fa-gift"></i><?php if(empty($this->id)):?><?php echo $this->lang['admin_category_add_new']?><?php else:?><?php echo $this->lang['admin_category_edit']?> # <?php echo $this->id;?><?php endif;?>
+                    
+                </div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form action="<?php echo $this->baseUrl('admin/category/save')?>"
+					id="admin_form" class="form-horizontal" method="POST"
+					enctype="multipart/form-data">
+					<div class="form-body">
+						<div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+							Có một vài lỗi dữ liệu. Hãy kiểm tra lại.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+							Kiểm tra dữ liệu thành công!
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Tên danh mục <span
+								class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('category_name')?>
+                            </div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-3">Thứ tự </label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('item_order')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Ảnh cũ </label>
+							<div class="col-md-4">
+								<a class="fancybox-image"
+									href="<?php echo $this->data['image_path']?>"><img
+									src="<?php echo $this->data['image_path_preview']?>"
+									alt="<?php echo $this->data['category_name']?>" width="100" /></a>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Ảnh mới </label>
+							<div class="col-md-4">
+								<input type="file" name="image" />
+
+							</div>
+						</div>
+
+						<input type="hidden" name="id" value="<?php echo $this->id?>" /> <input
+							type="hidden" name="image_old"
+							value="<?php echo $this->data['image']?>" />
+					</div>
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<input type="hidden" name="access_redirect" value=""
+									id="access_redirect" />
+								<button type="submit" class="btn green" id="save">Lưu</button>
+								<button type="submit" class="btn btn-info" id="save_and_close">Lưu
+									và đóng</button>
+								<button type="button" class="btn default"
+									data-url="<?php echo $this->baseUrl('admin/category/index')?>"
+									id="btn_cancel">Hủy</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- END FORM-->
+			</div>
+			<!-- END VALIDATION STATES-->
+		</div>
+	</div>
+</div>

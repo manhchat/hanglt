@@ -1,0 +1,155 @@
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN VALIDATION STATES-->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+
+					<i class="fa fa-gift"></i>Sửa sản phẩm # <?php echo $this->id;?>
+                    
+                </div>
+			</div>
+			<div class="portlet-body form">
+				<!-- BEGIN FORM-->
+				<form action="<?php echo $this->baseUrl('admin/product/save')?>"
+					id="admin_form" class="form-horizontal" method="POST"
+					enctype="multipart/form-data">
+					<div class="form-body">
+						<?php if(isset($this->message)):?>
+                            <?php echo $this->message;?>
+                        <?php endif;?>
+                        <div class="alert alert-danger display-hide">
+							<button class="close" data-close="alert"></button>
+							You have some form errors. Please check below.
+						</div>
+						<div class="alert alert-success display-hide">
+							<button class="close" data-close="alert"></button>
+							Your form validation is successful!
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Product name <span
+								class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('product_name')?>
+                            </div>
+						</div>
+
+						<div class="form-group">
+							<label class="control-label col-md-3">Category <span
+								class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('cid')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Weight <span
+								class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('weight')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Size <span class="required">
+									* </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('size')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Color <span class="required">
+									* </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('color')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Price (units, not including
+								tax) <span class="required"> * </span>
+							</label>
+							<div class="col-md-4">
+                                <?php echo $this->form->getElement('price')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Description </label>
+							<div class="col-md-8">
+                                <?php echo $this->form->getElement('description')?>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3">Older images </label>
+							<div class="col-md-8">
+							     <ul class="image_older">
+							         <?php $images = json_decode($this->data['image'], true)?>
+							         <?php foreach ($images as $key => $value):?>
+							             <li><img alt="" src="<?php echo $this->baseUrl(PRODUCT_IMAGE_PATH_PREVIEW.'/'.$value)?>"></li>
+							         <?php endforeach;?>
+							     </ul>
+                            </div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-md-3"> New images
+							</label>
+							<div class="col-md-7">
+								<div class="upload-ad-photos">
+									<div class="photos-upload-view">
+										<div class="dropzone"></div>
+
+									</div>
+									<div class="clearfix"></div>
+								</div>
+								<div id="dropzone_value"></div>
+								<input type="hidden" name="images_validate" value=""
+									id="images_validate" />
+							</div>
+						</div>
+						<input type="hidden" name="id" value="<?php echo $this->id?>" /> <input
+							type="hidden" name="image_old"
+							value="<?php echo $this->data['image']?>" />
+					</div>
+					<div class="form-actions">
+						<div class="row">
+							<div class="col-md-offset-3 col-md-9">
+								<input type="hidden" name="access_redirect" value=""
+									id="access_redirect" />
+								<button type="submit" class="btn green" id="save">Save</button>
+								<button type="submit" class="btn btn-info" id="save_and_close">Save and close</button>
+								<button type="button" class="btn default"
+									data-url="<?php echo $this->baseUrl('admin/product/index')?>"
+									id="btn_cancel">Cancel</button>
+							</div>
+						</div>
+					</div>
+				</form>
+				<!-- END FORM-->
+			</div>
+			<!-- END VALIDATION STATES-->
+		</div>
+	</div>
+</div>
+<!-- Dropzone Preview Template -->
+<div id="preview-template" style="display: none;">
+
+	<div class="dz-preview dz-file-preview">
+		<div class="dz-image">
+			<img data-dz-thumbnail="">
+		</div>
+		<div class="dz-progress">
+			<span class="dz-upload" data-dz-uploadprogress=""></span>
+		</div>
+		<div class="dz-error-message">
+			<span data-dz-errormessage=""></span>
+		</div>
+
+		<div class="dz-error-mark">
+			<img alt="" src="<?php //echo asset('images/err.png')?>">
+		</div>
+
+	</div>
+</div>
+<!-- End Dropzone Preview Template -->

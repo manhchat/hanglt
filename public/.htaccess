@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^laptopso1.com [NC]
+RewriteRule ^(.*)$ http://www.laptopso1.com/$1 [L,R=301,NC]
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]

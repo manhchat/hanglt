@@ -1,0 +1,6 @@
+<h3>ご購入はこちら</h3>
+<ul>
+    <?php foreach ($this->data as $key => $value):?>
+        <li><a href="<?php echo $this->baseUrl('product/index/category_id/'.$value['id'])?>"><?php echo $value['category_name']?></a></li>
+    <?php endforeach;?>
+</ul>

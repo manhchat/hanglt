@@ -1,0 +1,51 @@
+<div class="top">
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="center">
+		<h1 itemprop="name"><?php echo $this->categoryNews?></h1>
+	</div>
+</div>
+<div class="middle news-content">
+	<?php if (!empty($this->data)) {?>
+		<ul class="listnews">
+			<?php foreach ($this->data as $key => $value):?>
+			<li>
+			<h3 class="info_title">
+				<a href="<?php echo $value['link_detail']?>"
+					title="<?php echo $value['title']?>"><?php echo $value['title']?></a>
+			</h3>
+			<div class="information">
+				<div class="info_image">
+					<a href="<?php echo $value['link_detail']?>"> <img
+						alt="<?php echo $value['title']?>"
+						title="<?php echo $value['title']?>"
+						src="<?php echo $value['image']?>">
+					</a>
+				</div>
+				<div class="cn_date_added"><?php echo $value['update_time']?></div>
+				<div class="info_desc yes_image">
+						<?php echo $value['sumary']?>
+					</div>
+			</div>
+			<div class="xemtiep">
+				<a href="<?php echo $value['link_detail']?>" class="button"> <span>Xem
+						tiếp</span>
+				</a>
+			</div>
+		</li>
+			<?php endforeach;?>
+		</ul>
+	<div class="pagination">
+		<ul>
+				<?php echo $this->paginator?>
+			</ul>
+	</div>
+	<?php } else {?>
+		Dữ liệu đang được cập nhật...
+	<?php }?>
+</div>
+<div class="bottom">
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="center"></div>
+</div>

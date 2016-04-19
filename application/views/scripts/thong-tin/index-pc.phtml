@@ -1,0 +1,39 @@
+<div class="top">
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="news_date_add">Ngày đăng: <?php echo $this->data['create_time']?></div>
+	<div class="center">
+		<h1 class="news" itemprop="name"><?php echo $this->data['title']?></h1>
+	</div>
+</div>
+<div class="middle">
+	<?php if (!empty($this->data)) {?>
+		<div class="news_if">
+		<h1><?php echo $this->data['title']?></h1>
+		<div>
+				<?php echo $this->data['body']?>
+			</div>
+	</div>
+	<?php } else {?>
+		<p>Dữ liệu đang được cập nhật...</p>
+	<?php }?>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.4&appId=<?php echo FACEBOOK_APP_ID?>";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+	<div class="fb-comments" data-href="<?php echo $this->urlShare?>"
+		data-width="800" data-numposts="10"></div>
+	<div class="share"></div>
+	<div style="clear: both"></div>
+	<div style="clear: both"></div>
+	<br>
+</div>
+<div class="bottom">
+	<div class="left"></div>
+	<div class="right"></div>
+	<div class="center"></div>
+</div>
