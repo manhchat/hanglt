@@ -1,0 +1,9 @@
+<ul class="clearfix">
+    <li id="gnav01"<?php if ($this->controller == 'index'):?> class="current"<?php endif;?>><a href="<?php echo $this->baseUrl('/')?>">ホーム</a></li>
+    <li id="gnav02"<?php if ($this->controller == 'model'):?> class="current"<?php endif;?>><a href="#/shop_01.php">サンプル</a></li>
+    <li id="gnav04"<?php if ($this->controller == 'product'):?> class="current"<?php endif;?>><a href="<?php echo $this->baseUrl('product/index')?>">取り扱い商品</a></li>
+    <li id="gnav03"<?php if ($this->controller == 'payment'):?> class="current"<?php endif;?>><a href="#/payment.php">お支払い・送料</a></li>
+    <li id="gnav05"<?php if ($this->controller == 'company'):?> class="current"<?php endif;?>><a href="#/company.php">工場ご紹介</a></li>
+    <li id="gnav06"<?php if ($this->controller == 'new'):?> class="current"<?php endif;?>><a href="#/fax_order.pdf">ニュース</a></li>
+    <li id="last_menu"<?php if ($this->controller == 'contact'):?> class="current"<?php endif;?>><a href="#/contact.php">お問い合せ</a></li>
+</ul>

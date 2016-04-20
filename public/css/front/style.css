@@ -108,71 +108,24 @@ div.pgTit01 {
 #gnav {
 	width:1000px;
 	margin:0 auto 30px;
+}#gnav ul {
+	border-bottom: 2px solid #7d3102;
 }
 #gnav li {
 	float:left;
+	padding: 20px 35px 20px 35px;
+	background:url(../images/li-nav.jpg) no-repeat;
 }
-#gnav li a {
-	display:block;
-	background-image:url(../images/common/gnav.png);
-	background-repeat:no-repeat;
-	height:67px;
-	text-indent:-9999px;
+#gnav li.current, #gnav li:hover {
+	background-color: #f8f4f2;
 }
-#gnav01 a {
-	width:115px;
-	background-position:left top;
+#gnav li.current a, #gnav li:hover a {
+	background:url(../images/a-arrow.jpg) no-repeat;
+	background-position: center 31px;
+    padding-bottom: 25px;
 }
-#gnav02 a {
-	width:146px;
-	background-position:-115px top;
-}
-#gnav03 a {
-	width:170px;
-	background-position:-261px top;
-}
-#gnav04 a {
-	width:160px;
-	background-position:-431px top;
-}
-#gnav05 a {
-	width:130px;
-	background-position:-591px top;
-}
-#gnav06 a {
-	width:138px;
-	background-position:-721px top;
-}
-#gnav07 a {
-	width:141px;
-	background-position:-859px top;
-}
-#gnav01 a:hover,
-#home #gnav01 a {
-	background-position:left -67px;
-}
-#gnav02 a:hover,
-#shop #gnav02 a {
-	background-position:-115px -67px;
-}
-#gnav03 a:hover,
-#payment #gnav03 a {
-	background-position:-261px -67px;
-}
-#gnav04 a:hover,
-#products #gnav04 a {
-	background-position:-431px -67px;
-}
-#gnav05 a:hover,
-#company #gnav05 a {
-	background-position:-591px -67px;
-}
-#gnav06 a:hover {
-	background-position:-721px -67px;
-}
-#gnav07 a:hover,
-#contact #gnav07 a {
-	background-position:-859px -67px;
+#last_menu{
+	padding: 20px 52px 20px 52px !important;
 }
 
 
@@ -697,4 +650,31 @@ div#subNav ul li a img {
 
 #orderComplete #main p {
 	margin:0 0 15px;
+}
+.heading-product-list {
+	padding: 15px 0px 15px 5px;
+	border-top: 2px solid #000;
+	border-bottom: 1px dashed #c0bbb1;
+}
+.product-list {
+	margin-top: 10px;
+}
+.product-list ul li {
+	margin: 0px 0px 10px;
+    padding: 0px 16px 11px;
+    float: left;
+    width: 152px;
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: justify;
+    height: 180px;
+}
+.image-product {
+	min-height: 120px;
+	border: 1px solid #ccc;
+}
+.product-list ul li a {
+	color: #e83228;
+	font-weight: 700;
+	font-size: 14px;
 }

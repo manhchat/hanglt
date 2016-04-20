@@ -9,19 +9,11 @@
     </head>
     <body id="home">
         <header>
-            <?php //echo $this->action('header-banner', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
+            <?php echo $this->action('header-banner', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
         </header>
         <nav>
             <div id="gnav">
-                <ul class="clearfix">
-                    <li id="gnav01"><a href="#/index.php">ホーム</a></li>
-                    <li id="gnav02"><a href="#/shop_01.php">商品ご購入</a></li>
-                    <li id="gnav03"><a href="#/payment.php">お支払い・送料</a></li>
-                    <li id="gnav04"><a href="#/products.php">取り扱い商品</a></li>
-                    <li id="gnav05"><a href="#/company.php">会社概要</a></li>
-                    <li id="gnav06"><a href="#/fax_order.pdf" target="_blank">FAX注文</a></li>
-                    <li id="gnav07"><a href="#/contact.php">お問い合せ</a></li>
-                </ul>
+                <?php echo $this->action('nav', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
             </div>
             <!--#gnav-->
         </nav>

@@ -22,5 +22,12 @@ class IndexController extends Common_FrontController {
         $this->view->data = $data;
     }
     
+    public function navAction()
+    {
+        $controller = $this->getRequest()->getControllerName();
+        $params = $this->getRequest()->getParams();
+        $this->view->controller = $params['controller'];
+    }
+    
 }
 
