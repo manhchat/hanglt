@@ -49,7 +49,6 @@ class ProductController extends Common_FrontController {
     
     public function detailAction()
     {
-        $this->view->headLink ()->appendStylesheet ( $this->view->baseUrl ( 'css/front/pgwslider.min.css' ) );
         $this->view->headScript ()->appendFile ( $this->view->baseUrl ( 'js/front/pgwslider.min.js' ) );
         $this->view->headScript ()->appendFile ( $this->view->baseUrl ( 'js/front/detail.js' ) );
         
@@ -60,8 +59,25 @@ class ProductController extends Common_FrontController {
         $obj = new Model_Product();
         $opt['id'] = $id;
         $data = $obj->getItem($opt);
+        if (empty($data)) {
+            return $this->redirect('/');
+        }
         $images = json_decode($data['image'], true);
-        
+        foreach ($images as $key => $value) {
+            $images[$key] = $this->view->baseUrl().PRODUCT_IMAGE_PATH_PREVIEW.'/'.$value.'|'. $this->view->baseUrl().PRODUCT_IMAGE_PATH.'/'.$value;
+        }
+        $data['image'] = $images;
+        $this->view->headTitle ( $data['product_name'] );
+        $this->view->headMeta ()->setName ( 'keywords', $data['product_name'] );
+        $this->view->headMeta ()->setName ( 'description', $data['product_name'] );
+        $productRelation = $this->getProduct($data['cid']);
+        foreach ($productRelation as $key => $value) {
+            if ($value['id'] == $data['id']) {
+                unset($productRelation[$key]);
+            }
+        }
+        $this->view->data = $data;
+        $this->view->product = $productRelation;
     }
 }
 

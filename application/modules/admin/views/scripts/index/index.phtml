@@ -13,14 +13,62 @@
                 <?php if (count($this->messages)) : ?>
                     <?php foreach ($this->messages as $message) : ?>
                         <div class="alert alert-success">
-					<button class="close" data-close="alert"></button>
+                            <button class="close" data-close="alert"></button>
                             <?php echo $message; ?>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>
                 <!-- BEGIN FORM-->
-				<!-- END FORM-->
-			</div>
+                <form action="<?php echo $this->baseUrl('admin/index/save')?>" id="admin_form" class="form-horizontal" method="POST">
+                    <div class="form-body">
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button>
+                            You have some form errors. Please check below.
+                        </div>
+                        <div class="alert alert-success display-hide">
+                            <button class="close" data-close="alert"></button>
+                            Your form validation is successful!
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Company name
+                            </label>
+                            <div class="col-md-4">
+                                <?php echo $this->form->getElement('company')?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">TEL
+                            </label>
+                            <div class="col-md-4">
+                                <?php echo $this->form->getElement('phone')?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Email
+                            </label>
+                            <div class="col-md-4">
+                                <?php echo $this->form->getElement('email')?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Address
+                            </label>
+                            <div class="col-md-4">
+                                <?php echo $this->form->getElement('address')?>
+                            </div>
+                        </div>
+                        <input type="hidden" name="id" value="<?php echo $this->id?>" />
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                            	<input type="hidden" name="access_redirect" value="" id="access_redirect" />
+                                <button type="submit" class="btn green" id="save">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
 			<!-- END VALIDATION STATES-->
 		</div>
 	</div>

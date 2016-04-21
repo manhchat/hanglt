@@ -156,7 +156,7 @@ div.pgTit01 {
 
 
 #footerInner > ul > li {
-	margin:0 45px 0 0;
+	margin:0 65px 0 0;
 	float:left;
 }
 #footerInner > ul > li:last-child {
@@ -277,7 +277,8 @@ div#subNav ul li a img {
 }
 #home #mainVisual {
 	width:1000px;
-	margin:0 auto 10px;
+	margin:0px auto 10px;
+	margin-top: 6px;
 }
 
 #home .con01 {
@@ -298,6 +299,7 @@ div#subNav ul li a img {
 	border-radius:10px;
 	border:1px solid #FFE4CA;
 	background:#FFF8F5;
+	height: 200px;
 }
 #home .con03 ul li h4 {
 	color:#FF7E18;
@@ -546,24 +548,24 @@ div#subNav ul li a img {
 
 /*---------------------- payment ----------------------*/
 
-#payment #main table {
+#main #payment table {
 	border-collapse:collapse;
 	border:1px solid #ccc;
 	margin:0 0 40px;
 }
-#payment #main table th,
-#payment #main table td {
+#main #payment table th,
+#main #payment table td {
 	border:1px solid #ccc;
 	padding:10px;
 }
-#payment #main table th {
+#main #payment table th {
 	width:25%;
 	background:#F1F7FA;
 }
-#payment #main table td p {
+#main #payment table td p {
 	margin:0 0 20px;
 }
-#payment #main table td p:last-child {
+#main #payment table td p:last-child {
 	margin:0!important;
 }
 
@@ -677,4 +679,47 @@ div#subNav ul li a img {
 	color: #e83228;
 	font-weight: 700;
 	font-size: 14px;
+}
+.infomation table th {
+    padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    color: #333;
+    background-color: #f0f0f0;
+    font-weight: normal;
+    width: 33%;
+}
+.infomation table td {
+	padding: 8px;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.infomation table {
+	margin-top: 20px;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+.infomation {
+	float: left;
+	width: 100%;
+}
+.description {
+	float: left;
+    width: 100%;
+    padding-top: 10px;
+}
+#detail-area .product_relation {
+	float: left;
+	width: 100%;
+	margin-top: 20px;
+}
+#detail-area .product_relation .product-list {
+	float: left;
+	border-top: 2px solid #7d3102;
+	border-bottom: 2px solid #7d3102;
+	width: 100%;
+	padding-top: 20px;
 }

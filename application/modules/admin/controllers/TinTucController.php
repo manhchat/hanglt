@@ -102,7 +102,7 @@ class Admin_TinTucController extends Common_AdminController {
             } else {
                 $message = '<div class="alert alert-danger display-hide" style="display: block;">
                                 <button data-close="alert" class="close"></button>
-                                Có lỗi hệ thống không thể update được bản ghi. Hãy kiểm tra lại hệ thống.
+                                System error please check your system.
                             </div>';
                 $this->_helper->flashMessenger->addMessage ( $message );
                 return $this->redirector ( 'index', 'index', 'admin' );
@@ -120,7 +120,7 @@ class Admin_TinTucController extends Common_AdminController {
             } else {
                 $message = '<div class="alert alert-danger display-hide" style="display: block;">
                                 <button data-close="alert" class="close"></button>
-                                Có lỗi hệ thống không thể update được bản ghi. Hãy kiểm tra lại hệ thống.
+                                System error please check your system.
                             </div>';
                 $this->_helper->flashMessenger->addMessage ( $message );
                 return $this->redirector ( 'index', 'index', 'admin' );

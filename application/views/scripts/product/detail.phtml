@@ -1,0 +1,57 @@
+<div id="detail-area">
+    <h2 class="title"><?php echo $this->data['product_name']?></h2>
+    <div class="product-images">
+        <ul class="pgwSlider">
+            <?php foreach ($this->data['image'] as $key => $value):?>
+                <?php
+                    $imageArr = explode("|", $value);
+                ?>
+                <li><img src="<?php echo $imageArr[0]?>" data-large-src="<?php echo $imageArr[1]?>"></li>
+            <?php endforeach;?>
+        </ul>
+    </div>
+    <div class="infomation">
+        <table>
+            <tbody>
+                <tr>
+                    <th>重さ</th>
+                    <td>200匁</td>
+                </tr>
+                <tr>
+                    <th>サイズ</th>
+                    <td>200匁</td>
+                </tr>
+                <tr>
+                    <th>カラー</th>
+                    <td>200匁</td>
+                </tr>
+                <tr>
+                    <th>価格/1枚(税別)</th>
+                    <td>46.7円</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="description">
+        <?php echo $this->data['description']?>
+    </div>
+    <?php if (!empty($this->product)):?>
+    <div class="product_relation">
+        <h2>同じカテゴリの商品</h2>
+        <div class="product-list">
+            <ul>
+                <?php foreach ($this->product as $key => $value): ?>
+                    <li>
+                        <div class="image-product">
+                            <a href="<?php echo $this->baseUrl('product/detail/id/'.$value['id'])?>" title="<?php echo $value['product_name']?>">
+                                <img alt="<?php echo $value['product_name']?>" src="<?php echo $value['image_preview']?>" title="<?php echo $value['product_name']?>" width="150">
+                            </a>
+                        </div>
+                        <h5><a href="<?php echo $this->baseUrl('product/detail/id/'.$value['id'])?>" title="<?php echo $value['product_name']?>"><?php echo $value['product_name']?></a></h5>
+                    </li>
+                <?php endforeach;?>
+            </ul>
+        </div>
+    </div>
+    <?php endif;?>
+</div>

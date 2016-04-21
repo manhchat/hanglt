@@ -2,9 +2,8 @@
 class IndexController extends Common_FrontController {
     public function indexAction()
     {
-        
-        //$this->view->headMeta ()->setName ( 'keywords', $this->lang ['index_keywords_tag'] );
-       // $this->view->headMeta ()->setName ( 'description', $this->lang ['index_description_tag'] );
+        $newProduct = $this->getProduct();
+        $this->view->newProduct = $newProduct;
     }
     
     public function headerBannerAction()
@@ -28,6 +27,29 @@ class IndexController extends Common_FrontController {
         $params = $this->getRequest()->getParams();
         $this->view->controller = $params['controller'];
     }
-    
+    public function aboutAction()
+    {
+        $obj = new Model_System();
+        $data = $obj->getItem();
+        $this->view->data = $data;
+    }
+    private function getProduct()
+    {
+        $obj = new Model_Product();
+        $opt['sort_by'] = 'create_timestamp';
+        $opt['sort_order'] = 'DESC';
+        $opt['limit'] = 6;
+        $total = 0;
+        $data = $obj->getItems($opt, $total, false);
+        foreach ($data as $key => $value) {
+            if ($value['image'] != null) {
+                $imagesArr = json_decode($value['image'], true);
+                if ($imagesArr != null && count($imagesArr) > 0) {
+                    $data[$key]['image_preview'] = $this->view->baseUrl().PRODUCT_IMAGE_PATH_PREVIEW.'/'.$imagesArr[0];
+                }
+            }
+        }
+        return $data;
+    }
 }
 
