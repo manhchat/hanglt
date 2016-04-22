@@ -1,0 +1,32 @@
+<div id="contact">
+    <h3 class="tit01">メールでのお問い合せ</h3>
+    <div class="con01">
+        <p>メールでのお問い合せの方は以下の項目をご入力ください。</p>
+        <?php if (count($this->messages)) : ?>
+            <?php foreach ($this->messages as $message) : ?>
+                <div class="alert alert-success">
+                    <?php echo $message; ?>
+                </div>
+            <?php endforeach; ?>
+        <?php endif; ?>
+        <form action="<?php echo $this->baseUrl('contact/index')?>" method="post" id="frmContact">
+        <table>
+            <tbody>
+                <tr>
+                    <th>お名前/法人名</th>
+                    <td><input type="text" name="contact_name" value="" id="contact_name"></td>
+                </tr>
+                <tr>
+                    <th>メールアドレス</th>
+                    <td><input type="text" name="contact_email" value="" id="contact_email"></td>
+                </tr>
+                <tr>
+                    <th>お問い合せ内容</th>
+                    <td><textarea name="contact_message" rows="10" id="contact_message"></textarea></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><input type="button" name="post_flg" value="送信する" id="send_contact"></p>
+        </form>
+    </div><!--.con01-->
+</div>

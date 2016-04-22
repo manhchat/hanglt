@@ -480,18 +480,18 @@ div#subNav ul li a img {
 #company .con01 p {
 	margin:0 0 15px;
 }
-#company #main table {
+#main #company table {
 	width:100%;
 	border-collapse:collapse;
 	border:1px solid #ccc;
 	margin:0 0 20px;
 }
-#company #main table th,
-#company #main table td {
+#main #company table th,
+#main #company table td {
 	border:1px solid #ccc;
 	padding:10px;
 }
-#company #main table th {
+#main #company table th {
 	width:20%;
 	background:#F1F7FA;
 }
@@ -502,7 +502,7 @@ div#subNav ul li a img {
 	width:650px;
 	margin:0 auto;
 }
-#company #main iframe {
+#main #company iframe {
 	border:1px solid #ccc;
 }
 #company div.signature {
@@ -511,17 +511,17 @@ div#subNav ul li a img {
 
 /*---------------------- contact ----------------------*/
 
-#contact #main table {
+#main #contact table {
 	width:100%;
 	border-collapse:collapse;
 	border:1px solid #ccc;
 }
-#contact #main table th,
-#contact #main table td {
+#main #contact table th,
+#main #contact table td {
 	border:1px solid #ccc;
 	padding:10px;
 }
-#contact #main table th {
+#main #contact table th {
 	width:20%;
 	background:#F1F7FA;
 }
@@ -533,7 +533,7 @@ div#subNav ul li a img {
 #contact table textarea {
 	width:90%;
 }
-#contact .con01 input[type="submit"] {
+#contact .con01 input[type="button"] {
 	border:1px solid #ccc;
 	background:#D1D1D1;
 	text-align:center;
@@ -541,7 +541,7 @@ div#subNav ul li a img {
 	margin:20px 0;
 	cursor:pointer;
 }
-#contact .con01 input[type="submit"]:hover {
+#contact .con01 input[type="button"]:hover {
 	background:#90CBDD;
 }
 

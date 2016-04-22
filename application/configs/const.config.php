@@ -34,7 +34,10 @@ define ( "URL_NEWS_LIST", "danh-sach-tin-tuc" );
 define ( "URL_SERVICES", "dich-vu" );
 
 define ( "END_URL", "html" );
+
+define ( "RESOURCE_IMAGE_UPLOADED", realpath ( APPLICATION_PATH . "/../{$folder}/uploaded" ) );
 define ( "PAGGING_LIMIT", 20 );
 define ( "PAGE_OF_SCREEN", 3 );
 
-define ( "RESOURCE_IMAGE_UPLOADED", realpath ( APPLICATION_PATH . "/../{$folder}/uploaded" ) );
+define('EMAIL_ADMIN', 'hotrolaptop.com@gmail.com');
+define('EMAIL_PASSWORD', 'n00nelovem3n00nelovem3');
