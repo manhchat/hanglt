@@ -1,0 +1,7 @@
+<?php if (!empty($this->data)):?>
+    <?php if ($this->data['url'] == ''):?>
+        <img src="<?php echo $this->data['image'] ?>" alt="">
+    <?php else:?>
+        <a href="<?php echo $this->data['url']?>" target="_blank"><img src="<?php echo $this->data['image'] ?>" alt=""></a>
+    <?php endif;?>
+<?php endif;?>

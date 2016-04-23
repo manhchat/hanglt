@@ -1,16 +1,23 @@
 <h4 class="heading-product-list">商品一覧</h4>
 
 <div class="product-list">
-    <ul>
-        <?php foreach ($this->product as $key => $value): ?>
-            <li>
-                <div class="image-product">
-                    <a href="<?php echo $this->baseUrl('product/detail/id/'.$value['id'])?>" title="<?php echo $value['product_name']?>">
-                        <img alt="<?php echo $value['product_name']?>" src="<?php echo $value['image_preview']?>" title="<?php echo $value['product_name']?>" width="150">
-                    </a>
-                </div>
-                <h5><a href="<?php echo $this->baseUrl('product/detail/id/'.$value['id'])?>" title="<?php echo $value['product_name']?>"><?php echo $value['product_name']?></a></h5>
-            </li>
-        <?php endforeach;?>
-    </ul>
+    <?php if (!empty($this->product)):?>
+        <ul class="list-product">
+            <?php foreach ($this->product as $key => $value): ?>
+                <li>
+                    <div class="image-product">
+                        <a href="<?php echo $this->baseUrl('product/detail/id/'.$value['id'])?>" title="<?php echo $value['product_name']?>">
+                            <img alt="<?php echo $value['product_name']?>" src="<?php echo $value['image_preview']?>" title="<?php echo $value['product_name']?>" width="150">
+                        </a>
+                    </div>
+                    <h5><a href="<?php echo $this->baseUrl('product/detail/id/'.$value['id'])?>" title="<?php echo $value['product_name']?>"><?php echo $value['product_name']?></a></h5>
+                </li>
+            <?php endforeach;?>
+        </ul>
+        <ul class="paging">
+            <?php echo $this->paginator?>
+        </ul>
+    <?php else:?>
+        <p>に一致するウェブページは見つかりませんでした。</p>
+    <?php endif;?>
 </div>

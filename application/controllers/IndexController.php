@@ -10,7 +10,21 @@ class IndexController extends Common_FrontController {
     {
         
     }
-    
+    public function bannerCenterAction()
+    {
+        $obj = new Model_Slide();
+        $opt = array(
+            'sort_by' => 'update_timestamp',
+            'sort_order' => 'DESC',
+            'limit' => 1,
+            'type' => 1,
+        );
+        $data = $obj->getBanner($opt);
+        if (!empty($data)) {
+            $data['image'] = $this->view->baseUrl () . SLIDE_IMAGE_PATH . '/' . $data ['image'];
+            $this->view->data = $data;
+        }
+    }
     public function categoryAction()
     {
         $obj = new Model_Category();

@@ -109,7 +109,7 @@ class Ajax_AdminController extends Common_AjaxAdminController {
             $_record [] = '<a class="fancybox-image" href="' . $image_path . '"><img src="' . $image_path_preview . '" title="' . $item ['category_name'] . '" alt="' . $item ['category_name'] . '" width="100"/></a>';
             $_record [] = $item ['item_order'];
             $_record [] = date ( 'H:i:s d-m-Y', $item ['update_timestamp'] );
-            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/category/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Sửa</a>';
+            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/category/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Edit</a>';
             $records ["data"] [] = $_record;
         }
         $records ["draw"] = $sEcho;
@@ -200,7 +200,7 @@ class Ajax_AdminController extends Common_AjaxAdminController {
             $_record [] = '<input type="checkbox" name="id[]" value="' . $item ['id'] . '">';
             $_record [] = $item ['category_name'];
             $_record [] = $item ['item_order'];
-            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/category-child/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Sửa</a>';
+            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/category-child/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Edit</a>';
             $records ["data"] [] = $_record;
         }
         $records ["draw"] = $sEcho;
@@ -435,12 +435,12 @@ class Ajax_AdminController extends Common_AjaxAdminController {
             $_record [] = date ( 'H:i:s d-m-Y', $item ['update_timestamp'] );
             $status = '';
             if ($item ['type'] == 1) {
-                $status = 'Hoạt động';
+                $status = 'Active';
             } else {
-                $status = 'Dừng hoạt động';
+                $status = 'Inactive';
             }
             $_record [] = $status;
-            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/slide/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Sửa</a>';
+            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/slide/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Edit</a>';
             $records ["data"] [] = $_record;
         }
         $records ["draw"] = $sEcho;
@@ -546,7 +546,7 @@ class Ajax_AdminController extends Common_AjaxAdminController {
             $_record [] = $item ['title'];
             $_record [] = isset ( $category [$item ['category']] ) ? $category [$item ['category']] : '';
             $_record [] = date ( 'H:i:s d-m-Y', $item ['update_timestamp'] );
-            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/news/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Sửa</a>';
+            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/news/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Edit</a>';
             $records ["data"] [] = $_record;
         }
         $records ["draw"] = $sEcho;
@@ -561,7 +561,7 @@ class Ajax_AdminController extends Common_AjaxAdminController {
     public function tinTucAction() {
         $request = $this->getRequest ();
         $params = $request->getParams ();
-        $obj = new Model_TinTuc ();
+        $obj = new Model_News ();
         $iTotalRecords = 0;
         $iDisplayLength = isset ( $params ['length'] ) ? intval ( $params ['length'] ) : 0;
         $iDisplayLength = $iDisplayLength < 0 ? $iTotalRecords : $iDisplayLength;
@@ -611,9 +611,6 @@ class Ajax_AdminController extends Common_AjaxAdminController {
         if (isset ( $params ['title'] ) && ! empty ( $params ['title'] )) {
             $opt ['title'] = $params ['title'];
         }
-        if (isset ( $params ['category'] ) && ! empty ( $params ['category'] )) {
-            $opt ['category'] = $params ['category'];
-        }
         if (isset ( $params ['body'] ) && ! empty ( $params ['body'] )) {
             $opt ['body'] = $params ['body'];
         }
@@ -647,14 +644,15 @@ class Ajax_AdminController extends Common_AjaxAdminController {
         $opt ['index'] = $iDisplayStart;
         $opt ['size'] = $iDisplayLength;
         $items = $obj->getItems ( $opt, $iTotalRecords );
-        $category = Common_Codedef::getID ( 'CATEGORY_NEWS' );
         foreach ( $items as $item ) {
             $_record = array ();
             $_record [] = '<input type="checkbox" name="id[]" value="' . $item ['id'] . '">';
             $_record [] = $item ['title'];
-            $_record [] = isset ( $category [$item ['category']] ) ? $category [$item ['category']] : '';
+            $image_path = $this->view->baseUrl () . NEWS_IMAGE_PATH . '/' . $item ['image'];
+            $image_path_preview = $this->view->baseUrl () . PREVIEW_NEWS_IMAGE_PATH . '/' . $item ['image'];
+            $_record [] = '<a class="fancybox-image" href="' . $image_path . '"><img src="' . $image_path_preview . '" title="' . $item ['title'] . '" alt="' . $item ['title'] . '" width="100"/></a>';
             $_record [] = date ( 'H:i:s d-m-Y', $item ['update_timestamp'] );
-            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/tin-tuc/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Sửa</a>';
+            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/tin-tuc/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Edit</a>';
             $records ["data"] [] = $_record;
         }
         $records ["draw"] = $sEcho;
@@ -777,7 +775,7 @@ class Ajax_AdminController extends Common_AjaxAdminController {
             $_record [] = $item ['brand_name'];
             $_record [] = $item ['item_order'];
             $_record [] = date ( 'H:i:s d-m-Y', $item ['update_timestamp'] );
-            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/brand/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Sửa</a>';
+            $_record [] = '<a class="btn btn-xs default btn-editable" href="' . $this->view->baseUrl ( 'admin/brand/edit/id/' . $item ['id'] ) . '"><i class="fa fa-edit"></i> Edit</a>';
             $records ["data"] [] = $_record;
         }
         $records ["draw"] = $sEcho;

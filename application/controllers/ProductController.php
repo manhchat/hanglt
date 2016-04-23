@@ -3,6 +3,8 @@ class ProductController extends Common_FrontController {
     public function indexAction()
     {
         $id = $this->getParam('category_id');
+        $currentPage = $this->getParam('page', 1);
+        $params = $this->getAllParams();
         if ($id != '') {
             $categoryArr = $this->getCategory($id);
             $this->view->headTitle ( 'サンプル |'.$categoryArr ['category_name'] );
@@ -14,8 +16,11 @@ class ProductController extends Common_FrontController {
             $this->view->headMeta ()->setName ( 'description', 'サンプル' );
         }
         
-        $productArr = $this->getProduct($id);
-        $this->view->product = $productArr;
+        $productArr = $this->getProduct($id, $currentPage, $params);
+        if (!empty($productArr)) {
+            $this->view->product = $productArr['data'];
+            $this->view->paginator = $productArr['paginator'];
+        }
     }
     
     private function getCategory($id)
@@ -26,16 +31,19 @@ class ProductController extends Common_FrontController {
         return $data;
     }
     
-    private function getProduct($category_id)
+    private function getProduct($category_id, $currentPage, $params)
     {
         $obj = new Model_Product();
         $opt['sort_by'] = 'create_timestamp';
         $opt['sort_order'] = 'DESC';
+        $opt['paging'] = true;
+        $opt['from'] = $currentPage;
+        $opt['to'] = PAGGING_LIMIT;
         if ($category_id != '') {
             $opt['cid'] = $category_id;
         }
         $total = 0;
-        $data = $obj->getItems($opt, $total, false);
+        $data = $obj->getItems($opt, $total, true);
         foreach ($data as $key => $value) {
             if ($value['image'] != null) {
                 $imagesArr = json_decode($value['image'], true);
@@ -44,7 +52,13 @@ class ProductController extends Common_FrontController {
                 }
             }
         }
-        return $data;
+        $paging = $this->getPaginationPc ( $currentPage, PAGGING_LIMIT, $total, $params, PAGE_OF_SCREEN );
+        $dataOut = array();
+        if (!empty($data)) {
+            $dataOut['data'] = $data;
+            $dataOut['paginator'] = $paging;
+        }
+        return $dataOut;
     }
     
     public function detailAction()

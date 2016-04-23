@@ -2,9 +2,9 @@
 /**
  * User model
  */
-class Model_TinTuc extends Common_Model {
-    protected $tab = 'tintuc';
-    protected $alias = 't';
+class Model_News1 extends Common_Model {
+    protected $tab = 'news';
+    protected $alias = 'n';
     public function getItems($opt, &$total = 0, $get_total = true) {
         $name = array ();
         if ($get_total == true) {
@@ -25,8 +25,8 @@ class Model_TinTuc extends Common_Model {
             ), $name );
         }
         
-        if (isset ( $opt ['category'] ) && $opt ['category'] != '') {
-            $select->where ( 'category = ?', $opt ['category'] );
+        if (isset ( $opt ['cid'] ) && $opt ['cid'] != '') {
+            $select->where ( 'cid = ?', $opt ['cid'] );
         }
         if (isset ( $opt ['title'] ) && $opt ['title'] != '') {
             $select->where ( $this->alias . '.title LIKE ?', '%' . $opt ['title'] . '%' );
@@ -59,12 +59,7 @@ class Model_TinTuc extends Common_Model {
         if (isset ( $opt ['size'] ) && isset ( $opt ['index'] )) {
             $select->limit ( $size, $index );
         }
-        if (isset ( $opt ['limit'] ) && $opt ['limit'] != '') {
-            $select->limit ( $opt ['limit'] );
-        }
-        if (isset ( $opt ['paging'] ) && $opt ['paging'] == true && isset ( $opt ['from'] ) && isset ( $opt ['to'] )) {
-            $select->limitPage ( $opt ['from'], $opt ['to'] );
-        }
+        
         $query = $this->query ( $select );
         
         $iCount = $this->db->query ( 'SELECT FOUND_ROWS() as row' );

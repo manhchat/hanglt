@@ -19,7 +19,7 @@ var TinTuc = function () {
             onError: function (grid) {
                 // execute some code on network or other general error  
             },
-            loadingMessage: 'Đang tải...',
+            loadingMessage: 'Loading...',
             dataTable: { // here you can define a typical datatable settings from http://datatables.net/usage/options 
 
                 // Uncomment below line("dom" parameter) to fix the dropdown overflow issue in the datatable cells. The default datatable layout
@@ -40,7 +40,7 @@ var TinTuc = function () {
                     [3, "desc"]
                 ], // set first column as a default sort by asc
                 "aoColumnDefs": [
-                                 { 'bSortable': false, 'aTargets': [0, 4] }
+                                 { 'bSortable': false, 'aTargets': [0, 2, 4] }
                               ]
             }
         });

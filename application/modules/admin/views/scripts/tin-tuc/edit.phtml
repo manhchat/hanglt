@@ -4,7 +4,7 @@
 		<div class="portlet">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-gift"></i><?php if(empty($this->id)):?>Tạo mới tin tức<?php else:?>Sửa tin tức # <?php echo $this->id;?><?php endif;?>
+					<i class="fa fa-gift"></i><?php if(empty($this->id)):?>Tạo mới tin tức<?php else:?>Edit news # <?php echo $this->id;?><?php endif;?>
                 </div>
 			</div>
 			<div class="portlet-body form">
@@ -22,7 +22,7 @@
 							Your form validation is successful!
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Tên danh mục <span
+							<label class="control-label col-md-3">Title <span
 								class="required"> * </span>
 							</label>
 							<div class="col-md-4">
@@ -30,27 +30,19 @@
                             </div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Danh mục tin tức <span
-								class="required"> * </span>
-							</label>
-							<div class="col-md-4">
-                                <?php echo $this->form->getElement('category')?>
-                            </div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-md-3">Nội dung tóm lược </label>
+							<label class="control-label col-md-3">Content summary </label>
 							<div class="col-md-5">
-                                <?php echo $this->form->getElement('sumary')?>
+                                <?php echo $this->form->getElement('summary')?>
                             </div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Nội dung </label>
+							<label class="control-label col-md-3">Content </label>
 							<div class="col-md-8">
                                 <?php echo $this->form->getElement('body')?>
                             </div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Ảnh cũ </label>
+							<label class="control-label col-md-3">Current image </label>
 							<div class="col-md-4">
 								<a class="fancybox-image"
 									href="<?php echo $this->data['image_path']?>"><img
@@ -59,7 +51,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Ảnh mới </label>
+							<label class="control-label col-md-3">News image </label>
 							<div class="col-md-4">
 								<input type="file" name="image" />
 
@@ -75,12 +67,11 @@
 							<div class="col-md-offset-3 col-md-9">
 								<input type="hidden" name="access_redirect" value=""
 									id="access_redirect" />
-								<button type="submit" class="btn green" id="save">Lưu</button>
-								<button type="submit" class="btn btn-info" id="save_and_close">Lưu
-									và đóng</button>
+								<button type="submit" class="btn green" id="save">Save</button>
+								<button type="submit" class="btn btn-info" id="save_and_close">Save and close</button>
 								<button type="button" class="btn default"
 									data-url="<?php echo $this->baseUrl('admin/tin-tuc/index')?>"
-									id="btn_cancel">Hủy</button>
+									id="btn_cancel">Cancel</button>
 							</div>
 						</div>
 					</div>

@@ -109,4 +109,29 @@ class Model_Slide extends Common_Model {
                 'id IN(?)' => $opt ['ids'] 
         ) );
     }
+    
+    public function getBanner($opt) {
+        if (! empty ( $opt ['fields'] )) {
+            $select = $this->select ()->from ( $this->tab, $opt ['fields'] );
+        } else {
+            $select = $this->select ()->from ( $this->tab );
+        }
+        $sort_by = 'update_timestamp';
+        if (isset ( $opt ['sort_by'] ) && $opt ['sort_by'] != '') {
+            $sort_by = $opt ['sort_by'];
+        }
+        if (isset ( $opt ['type'] ) && $opt ['type'] != '') {
+            $select->where ( 'type = ?', $opt ['type'] );
+        }
+        $sort_order = 'DESC';
+        if (isset ( $opt ['sort_order'] ) && $opt ['sort_order'] != '') {
+            $sort_order = $opt ['sort_order'];
+        }
+        if (isset ( $opt ['limit'] ) && $opt ['limit'] != '') {
+            $select->limit ( $opt ['limit'] );
+        }
+        $query = $this->query ( $select );
+        $result = $query->fetch ();
+        return $result;
+    }
 }

@@ -29,14 +29,6 @@ var NewsEdit = function () {
                     required: true,
                 },
             },
-            messages: {// custom messages for radio buttons and checkboxes
-            	title: {
-            		required: "Hãy nhập tên tiêu đề."
-            	},
-            	category: {
-                    required: "Hãy chọn danh mục tin.",
-                },
-            },
             errorPlacement: function (error, element) { // render error placement for each input type
                 if (element.parent(".input-group").size() > 0) {
                     error.insertAfter(element.parent(".input-group"));

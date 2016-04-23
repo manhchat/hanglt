@@ -1,0 +1,19 @@
+<div id="news">
+    <h2>ニュース</h2>
+    <?php if (!empty($this->data)):?>
+        <ul class="list-news">
+            <?php foreach ($this->data as $key => $value):?>
+            <li>
+                <div class="image"><a href="<?php echo $this->baseUrl('news/detail/id/'.$value['id'])?>"><img width="150" src="<?php echo $value['image']?>"></a></div>
+                <div class="title"><a href="<?php echo $this->baseUrl('news/detail/id/'.$value['id'])?>"><?php echo $value['title']?></a></div>
+                <div class="summary"><?php echo $value['summary']?></div>
+            </li>
+            <?php endforeach;?>
+        </ul>
+        <ul class="paging">
+            <?php echo $this->paginator?>
+        </ul>
+    <?php else: ?>
+        <p>に一致するウェブページは見つかりませんでした。</p>
+    <?php endif;?>
+</div>

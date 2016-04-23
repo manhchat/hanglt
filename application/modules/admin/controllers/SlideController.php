@@ -17,7 +17,7 @@ class Admin_SlideController extends Common_AdminController {
         if ($id == '') {
             return;
         }
-        $this->view->headTitle ( 'Sửa sản phẩm' );
+        $this->view->headTitle ( 'Edit banner' );
         
         $obj = new Model_Slide ();
         $opt ['fields'] = array (
@@ -41,7 +41,7 @@ class Admin_SlideController extends Common_AdminController {
     }
     public function addAction() {
         $this->view->headScript ()->appendFile ( $this->view->baseUrl ( 'js/admin/slide-add.js' ) );
-        $this->view->headTitle ( 'Tạo mới ảnh cho slide' );
+        $this->view->headTitle ( 'Create new banner' );
         $form = new Form_Admin_Slide ();
         $this->view->form = $form;
     }
@@ -91,7 +91,7 @@ class Admin_SlideController extends Common_AdminController {
                         @unlink ( $filename_preview );
                     }
                 }
-                $this->_helper->flashMessenger->addMessage ( "Sửa ảnh slide thành công." );
+                $this->_helper->flashMessenger->addMessage ( "Banner has been edited." );
                 if ($params ['access_redirect'] == 'save') {
                     return $this->redirector ( 'edit', 'slide', 'admin', array (
                             'id' => $params ['id'] 
@@ -111,7 +111,7 @@ class Admin_SlideController extends Common_AdminController {
             // Truong hop insert moi
             $res = $obj->insertItem ( $opt );
             if ($res) {
-                $this->_helper->flashMessenger->addMessage ( "Tạo mới ảnh slide thành công." );
+                $this->_helper->flashMessenger->addMessage ( "Banner has been created." );
                 if ($params ['access_redirect'] == 'save') {
                     return $this->redirector ( 'add', 'slide', 'admin' );
                 } else {

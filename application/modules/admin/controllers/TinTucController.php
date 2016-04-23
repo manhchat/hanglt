@@ -9,7 +9,7 @@ class Admin_TinTucController extends Common_AdminController {
     public function indexAction() {
         $this->view->headScript ()->appendFile ( $this->view->baseUrl ( 'js/admin/tin-tuc.js' ) );
         $dataCategory = Common_Codedef::getID ( 'CATEGORY_NEWS' );
-        $this->view->headTitle ( 'Quản lý tin tức' );
+        $this->view->headTitle ( 'News management' );
         $this->view->messages = $this->_helper->flashMessenger->getMessages ();
         $this->view->dataCategory = $dataCategory;
     }
@@ -20,20 +20,19 @@ class Admin_TinTucController extends Common_AdminController {
             return;
         }
         $form = new Form_Admin_TinTuc ();
-        $obj = new Model_TinTuc ();
+        $obj = new Model_News ();
         $opt ['fields'] = array (
                 'title',
                 'body',
-                'category',
                 'image',
-                'sumary' 
+                'summary' 
         );
         $opt ['id'] = $id;
         $data = $obj->getItem ( $opt );
         $form->setDataToForm ( $data );
         $data ['image_path_preview'] = $this->view->baseUrl () . PREVIEW_NEWS_IMAGE_PATH . '/' . $data ['image'];
         $data ['image_path'] = $this->view->baseUrl () . NEWS_IMAGE_PATH . '/' . $data ['image'];
-        $this->view->headTitle ( 'Sửa thông tin chung' );
+        $this->view->headTitle ( 'Edit news' );
         $this->view->form = $form;
         $this->view->data = $data;
         $this->view->id = $id;
@@ -42,7 +41,7 @@ class Admin_TinTucController extends Common_AdminController {
         $this->view->headScript ()->appendFile ( $this->view->baseUrl ( 'js/admin/tin-tuc-add.js' ) );
         $form = new Form_Admin_TinTuc ();
         $this->view->form = $form;
-        $this->view->headTitle ( 'Tạo mới tin tức' );
+        $this->view->headTitle ( 'Create news' );
     }
     public function saveAction() {
         $this->setNoRender ();
@@ -52,7 +51,7 @@ class Admin_TinTucController extends Common_AdminController {
         if (! $request->isPost ()) {
             return;
         }
-        $obj = new Model_TinTuc ();
+        $obj = new Model_News ();
         // Upload image
         $upload = new Zend_File_Transfer ();
         $fileInfo = $upload->getFileInfo ();
@@ -71,9 +70,8 @@ class Admin_TinTucController extends Common_AdminController {
         }
         
         $opt ['fields'] ['title'] = isset ( $params ['title'] ) ? $params ['title'] : '';
-        $opt ['fields'] ['category'] = isset ( $params ['category'] ) ? $params ['category'] : 0;
         $opt ['fields'] ['body'] = isset ( $params ['body'] ) ? $params ['body'] : '';
-        $opt ['fields'] ['sumary'] = isset ( $params ['sumary'] ) ? $params ['sumary'] : '';
+        $opt ['fields'] ['summary'] = isset ( $params ['summary'] ) ? $params ['summary'] : '';
         if (isset ( $params ['id'] ) && $params ['id'] != '') {
             // Truong hop update
             $opt ['id'] = $params ['id'];
@@ -91,7 +89,7 @@ class Admin_TinTucController extends Common_AdminController {
                         @unlink ( $filename_preview );
                     }
                 }
-                $this->_helper->flashMessenger->addMessage ( "Sửa dữ liệu thành công." );
+                $this->_helper->flashMessenger->addMessage ( "News has been edited." );
                 if ($params ['access_redirect'] == 'save') {
                     return $this->redirector ( 'edit', 'tin-tuc', 'admin', array (
                             'id' => $params ['id'] 
@@ -111,7 +109,7 @@ class Admin_TinTucController extends Common_AdminController {
             // Truong hop insert moi
             $res = $obj->insertItem ( $opt );
             if ($res) {
-                $this->_helper->flashMessenger->addMessage ( "Tạo dữ liệu thành công." );
+                $this->_helper->flashMessenger->addMessage ( "News has been created." );
                 if ($params ['access_redirect'] == 'save') {
                     return $this->redirector ( 'add', 'tin-tuc', 'admin' );
                 } else {

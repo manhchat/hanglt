@@ -6,12 +6,12 @@
 		<div class="portlet">
 			<div class="portlet-title">
 				<div class="caption">
-					<i class="fa fa-certificate"></i>Danh sách tin tức
+					<i class="fa fa-certificate"></i>List news
 				</div>
 				<div class="actions">
 					<a href="<?php echo $this->baseUrl('admin/tin-tuc/add')?>"
 						class="btn default green-stripe"> <i class="fa fa-plus"></i> <span
-						class="hidden-480">Tạo mới tin tức</span>
+						class="hidden-480">Create news</span>
 					</a>
 				</div>
 			</div>
@@ -39,8 +39,8 @@
 						<thead>
 							<tr role="row" class="heading">
 								<th width="1%"><input type="checkbox" class="group-checkable"></th>
-								<th width="15%">Tiêu đề</th>
-								<th width="20%">Danh mục</th>
+								<th width="15%">Title</th>
+								<th width="20%">Image</th>
 								<th width="5%">
                                     <?php echo $this->lang['admin_update_date']?>
                                 </th>
@@ -52,14 +52,7 @@
 								<td></td>
 								<td><input type="text" class="form-control form-filter input-sm"
 									name="title"></td>
-								<td><select name="category" id="category"
-									class="form-control form-filter input-sm">
-										<option value="">...Chọn...</option>
-                                        <?php foreach ($this->dataCategory as $key => $value):?>
-                                            <option
-											value="<?php echo $key?>"><?php echo $value?></option>
-                                        <?php endforeach;?>
-                                    </select></td>
+								<td></td>
 								<td></td>
 								<td>
 									<div class="margin-bottom-5">

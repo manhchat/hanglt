@@ -25,25 +25,10 @@ var NewsEdit = function () {
                     required: true,
                     maxlength: 255,
                 },
-                category: {
-                    required: true,
-                },
                 image: {
                 	required: true,
                 	accept: "image/jpeg, image/jpg, image/png, image/gif"
                 },
-            },
-            messages: {// custom messages for radio buttons and checkboxes
-            	title: {
-            		required: "Hãy nhập tên tiêu đề."
-            	},
-            	category: {
-                    required: "Hãy chọn danh mục tin.",
-                },
-            	image: {
-            		required: "Hãy chọn ảnh đại diện cho danh mục.",
-                	accept: "Hãy chọn định dạng là ảnh."
-                }
             },
             errorPlacement: function (error, element) { // render error placement for each input type
                 if (element.parent(".input-group").size() > 0) {

@@ -246,12 +246,12 @@ abstract class Common_BaseController extends Zend_Controller_Action
     		if (1 < $page-1) {
     			$params['page'] = 1;
     			$url = $this->createUrl($params);
-    			$html.= '<li><a href="'.$url.'" title="First">««</a></li>';
+    			$html.= '<li><a href="'.$url.'">««</a></li>';
     		}
     
     		$params['page'] = $page-1;
     		$url = $this->createUrl($params);
-    		$html.= '<li class="prev"><a href="'.$url.'" title="Quay lại">'.$prevLabel.'</a></li>';
+    		$html.= '<li class="prev"><a href="'.$url.'">'.$prevLabel.'</a></li>';
     	}
     
     	$fromPage = 1;
@@ -300,12 +300,12 @@ abstract class Common_BaseController extends Zend_Controller_Action
     	if ($page < $totalPage) {
     		$params['page'] = $page+1;
     		$url = $this->createUrl($params);
-    		$html.= '<li class="next"><a href="'.$url.'" title="Xem thêm">'.$nextLabel.'</a></li>';
+    		$html.= '<li class="next"><a href="'.$url.'">'.$nextLabel.'</a></li>';
     
     		if ($page+1 < $totalPage) {
     			$params['page'] = $totalPage;
     			$url = $this->createUrl($params);
-    			$html.= '<li><a href="'.$url.'" title="Last">»»</a></li>';
+    			$html.= '<li><a href="'.$url.'">»»</a></li>';
     		}
     	}
     	//return array('paging' => $html, 'row_count' => $row_count);

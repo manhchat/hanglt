@@ -25,9 +25,6 @@ class Model_News extends Common_Model {
             ), $name );
         }
         
-        if (isset ( $opt ['cid'] ) && $opt ['cid'] != '') {
-            $select->where ( 'cid = ?', $opt ['cid'] );
-        }
         if (isset ( $opt ['title'] ) && $opt ['title'] != '') {
             $select->where ( $this->alias . '.title LIKE ?', '%' . $opt ['title'] . '%' );
         }
@@ -58,6 +55,12 @@ class Model_News extends Common_Model {
         }
         if (isset ( $opt ['size'] ) && isset ( $opt ['index'] )) {
             $select->limit ( $size, $index );
+        }
+        if (isset ( $opt ['limit'] ) && $opt ['limit'] != '') {
+            $select->limit ( $opt ['limit'] );
+        }
+        if (isset ( $opt ['paging'] ) && $opt ['paging'] == true && isset ( $opt ['from'] ) && isset ( $opt ['to'] )) {
+            $select->limitPage ( $opt ['from'], $opt ['to'] );
         }
         
         $query = $this->query ( $select );

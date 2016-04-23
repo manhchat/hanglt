@@ -18,7 +18,7 @@
             <!--#gnav-->
         </nav>
         <div id="mainVisual">
-            <img src="<?php echo $this->baseUrl('css/images')?>/main01.png" alt="">
+            <?php echo $this->action('banner-center', 'index', 'default', Zend_Controller_Front::getInstance()->getRequest()->getParams())?>
         </div>
         <!--#mainVisual-->
         <div id="contents" class="clearfix">
@@ -61,7 +61,7 @@
                         <li><a href="<?php echo $this->baseUrl('product/index')?>">取り扱い商品</a></li>
                         <li><a href="<?php echo $this->baseUrl('payment/index')?>">お支払い・送料</a></li>
                         <li><a href="<?php echo $this->baseUrl('company/index')?>">工場ご紹介</a></li>
-                        <li><a href="<?php echo $this->baseUrl('new/index')?>">ニュース</a></li>
+                        <li><a href="<?php echo $this->baseUrl('news/index')?>">ニュース</a></li>
                         <li><a href="<?php echo $this->baseUrl('contact/index')?>">お問い合せ</a></li>
                     </ul>
                 </div>

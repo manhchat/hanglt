@@ -5,7 +5,7 @@
 			<div class="portlet-title">
 				<div class="caption">
 
-					<i class="fa fa-gift"></i>Sửa ảnh slide # <?php echo $this->id;?>
+					<i class="fa fa-gift"></i>Edit banner # <?php echo $this->id;?>
                     
                 </div>
 			</div>
@@ -24,7 +24,7 @@
 							Your form validation is successful!
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Tiêu đề <span
+							<label class="control-label col-md-3">Title <span
 								class="required"> * </span>
 							</label>
 							<div class="col-md-4">
@@ -32,7 +32,7 @@
                             </div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Ảnh cũ </label>
+							<label class="control-label col-md-3">Current banner </label>
 							<div class="col-md-4">
 								<a class="fancybox-image"
 									href="<?php echo $this->data['image_path']?>"><img
@@ -42,25 +42,25 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Ảnh </label>
+							<label class="control-label col-md-3">New banner </label>
 							<div class="col-md-4">
 								<input type="file" name="image" />
 
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Liên kết </label>
+							<label class="control-label col-md-3">Link </label>
 							<div class="col-md-4">
                                 <?php echo $this->form->getElement('url')?>
                             </div>
 						</div>
 						<div class="form-group">
-							<label class="control-label col-md-3">Trạng thái</label>
+							<label class="control-label col-md-3">Status</label>
 							<div class="col-md-4">
-								<label class="control-label col-md-4">Hoạt động<input
+								<label class="control-label col-md-4">Active<input
 									type="radio" <?php if ($this->data['type'] == 1):?>
 									checked="checked" <?php endif;?> name="type" value="1" /></label>
-								<label class="control-label col-md-4">Dừng<input type="radio"
+								<label class="control-label col-md-4">Inactive<input type="radio"
 									<?php if ($this->data['type'] == 0):?> checked="checked"
 									<?php endif;?> name="type" value="0" /></label>
 							</div>
@@ -74,12 +74,11 @@
 							<div class="col-md-offset-3 col-md-9">
 								<input type="hidden" name="access_redirect" value=""
 									id="access_redirect" />
-								<button type="submit" class="btn green" id="save">Lưu</button>
-								<button type="submit" class="btn btn-info" id="save_and_close">Lưu
-									và đóng</button>
+								<button type="submit" class="btn green" id="save">Save</button>
+								<button type="submit" class="btn btn-info" id="save_and_close">Save and close</button>
 								<button type="button" class="btn default"
 									data-url="<?php echo $this->baseUrl('admin/slide/index')?>"
-									id="btn_cancel">Hủy</button>
+									id="btn_cancel">Cancel</button>
 							</div>
 						</div>
 					</div>

@@ -25,7 +25,7 @@ define ( "THUMBNAIL_IMAGE_MAX_HEIGHT", 150 );
 define ( "SESSION_LIFETIME", 60 * 60 * 1 ); // 1h
 define ( "SESSION_NAMESPACE", "session.chatdm" );
 
-define ( "SEO_URL", TRUE );
+define ( "SEO_URL", FALSE );
 define ( "URL_LIST_PRODUCT", "san-pham" );
 define ( "URL_DETAIL_PRODUCT", "chi-tiet" );
 
@@ -38,6 +38,6 @@ define ( "END_URL", "html" );
 define ( "RESOURCE_IMAGE_UPLOADED", realpath ( APPLICATION_PATH . "/../{$folder}/uploaded" ) );
 define ( "PAGGING_LIMIT", 20 );
 define ( "PAGE_OF_SCREEN", 3 );
-
+define ( "PAGGING_NEWS_LIMIT", 10 );
 define('EMAIL_ADMIN', 'hotrolaptop.com@gmail.com');
 define('EMAIL_PASSWORD', 'n00nelovem3n00nelovem3');

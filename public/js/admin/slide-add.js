@@ -28,23 +28,10 @@ var SlideEdit = function () {
                 url: {
                 	url: true
                 },
-                
                 image: {
                 	required: true,
                 	accept: "image/jpeg, image/jpg, image/png, image/gif"
                 },
-            },
-            messages: {// custom messages for radio buttons and checkboxes
-            	title: {
-            		required: "Hãy nhập tiêu đề sản phẩm."
-            	},
-            	url: {
-            		url: "Hãy nhập dạng url đầy đủ http://abc.com.vn/."
-            	},
-            	image: {
-            		required: "Hãy chọn ảnh cho slide.",
-                	accept: "Hãy chọn định dạng là ảnh."
-                }
             },
             errorPlacement: function (error, element) { // render error placement for each input type
                 if (element.parent(".input-group").size() > 0) {
