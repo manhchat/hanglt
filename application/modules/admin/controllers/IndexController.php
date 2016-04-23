@@ -105,13 +105,13 @@ public function indexAction()
                         'title' => 'Product',
                         'childs' => array () 
                 ),
-                array (
+                /* array (
                         'module' => 'admin',
                         'action' => 'index',
                         'controller' => 'news',
                         'title' => 'Services information',
                         'childs' => array () 
-                ),
+                ), */
                 array (
                         'module' => 'admin',
                         'action' => 'index',
